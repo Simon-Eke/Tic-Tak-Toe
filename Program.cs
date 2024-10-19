@@ -5,8 +5,8 @@
         static void Main(string[] args)
         {
             int gridSize = 3; // GetGridSizeInput()
-            // TODO - How many x in a row could I allow? 
-            // TODO - Should the winning grid have the x in a row highlighted?
+            // TODO - FUTURE - How many x in a row could I allow? 
+            // TODO - FUTURE - Should the winning grid have the x in a row highlighted?
             char[,] createdBoard = CreateBoard.Create(gridSize, 0);
             DisplayBoard.Display(createdBoard, gridSize);
 
@@ -23,9 +23,14 @@
 
             /* MAIN GAME LOOP
              
-             TODO - User interface?
-             TODO - Clear output in console after every move.
-             
+             TODO - FUTURE - User interface?
+            play default difficulty {0}
+            (play again {1})
+            Change difficulty {2}
+            Quit {3}
+             TODO - FUTURE - Clear output in console after every move.
+             TODO - FUTURE - PVP and/or PVC?
+
              */
 
 
@@ -39,18 +44,18 @@
 
             while (true)
             {
-                Console.WriteLine("\nWhere do you want to place your next piece? (1-9) ");
+                Console.WriteLine("\nWhere do you want to place your next piece? Press (1-9) + Enter ");
                 Console.Write("New move: ");
 
                 // User input checker
                 int validInt = MoveValidator.UserInput(chosenIndexes);
-                // Add validInt to a list of chosen indexes.
-                chosenIndexes.Add(validInt);
-                // Add 'X' to the chosen index in the game 
+                // Add validInt to a list of chosen indexes. user väljer mellan 1-9, i arrayen har jag 0-8.
+                chosenIndexes.Add(validInt-1);
+                // Add 'X' to the chosen index in the game board Array.
                 currentBoard[validInt] = 'X';
 
 
-                // TODO - display currentBoard.
+                // TODO - NEAR FUTURE - display currentBoard.
 
 
                 // Check the win for the player!
@@ -59,13 +64,17 @@
 
                 if (playerCharacter != 'N')
                 {
-                    break; // Break out! Someone has won!
+                    break; // Break out! Player 1/Player has won!
                 }
 
 
-                /* TODO - The computer generated move
-                
-                
+                /* TODO - CURRENT - The computer generated move - SVÅRT!
+                int computerInt = ComputerMove.GetIndex(chosenIndexes);
+                chosenIndexes.Add(computerInt - 1????);
+                currentBoard[computerInt] = 'O';
+
+                Jag behöver lära mig att split userinput, sätta det i en array och få ut. bla bla.
+                Jag behöver paus och ett mindre lekprogram.
                 */
 
 
@@ -75,7 +84,7 @@
 
                 if (playerCharacter != 'N')
                 {
-                    break; // Break out! Someone has won!
+                    break; // Break out! Player 2/Computer has won!
                 }
             }
 
