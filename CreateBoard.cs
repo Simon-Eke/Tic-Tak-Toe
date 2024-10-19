@@ -39,9 +39,7 @@ namespace Tic_Tak_Toe
                         {
                             if (gameState == 0) gameBoard[i, j] = ' ';
                             else if (gameState == 3) gameBoard[i, j] = Convert.ToChar(s);
-
-                        }
-                            
+                        }    
                     }
                 }
             }
