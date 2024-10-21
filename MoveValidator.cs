@@ -33,7 +33,8 @@ namespace Tic_Tak_Toe
                     Console.Write("New move: ");
                     validMove = false;
                 }
-                else if (chosenIndexes.Contains(userPositionChoice))
+                // User chooses 1-9 (more user friendly) but the computer stores in an array 0-8 (more cpu friendly)
+                else if (chosenIndexes.Contains(userPositionChoice-1))
                 {
                     Console.WriteLine("You must choose a vacant position.");
                     inputTries--;

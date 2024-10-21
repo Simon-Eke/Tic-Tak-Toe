@@ -24,11 +24,26 @@ namespace Tic_Tak_Toe
             */
 
 
-            // TODO - 3.Perfect human play
+            // 1.Random drag
+            // -Kanske lättast att börja med.
+
+            List<int> availableIndexes = new List<int>();
+            availableIndexes = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+            for (int i = 0; i < chosenIndexes.Count; i++)
+            {
+                availableIndexes.Remove(chosenIndexes[i]);
+            }
+            // I just hope that the list re-adjusts itself.
+            Random random = new();
+            index = availableIndexes[random.Next(0, availableIndexes.Count-1)];
+
+
+
+            // TODO - FUTURE - 3.Perfect human play
 
             // ------------- 1st Move: Middle or Corners
 
-            // if chosenIndexes.Count() == 1;
+            /* if chosenIndexes.Count() == 1;
             if (chosenIndexes.Count == 1)
             {
                 // If 4 is an available index, place there.
@@ -46,7 +61,7 @@ namespace Tic_Tak_Toe
                     return index;
                 }
             }
-
+            */
             // ------------- Offence Move - The computer must go for the win if possible.
 
             // If the FIRST FOUND index i is available in ChosenIndex that wins the game for the Computer, place there
@@ -57,7 +72,7 @@ namespace Tic_Tak_Toe
 
             // If the FIRST FOUND index i is available in ChosenIndex that wins the game for the User, place there.
 
-            // TODO - Recursive function solve for Comp 2nd move? Example:
+            // TODO - FUTURE - Recursive function solve for Comp 2nd move? Example:
             // player X Comp O
             // 
             // X O

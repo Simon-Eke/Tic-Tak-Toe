@@ -83,6 +83,8 @@ namespace Tic_Tak_Toe
                 return winner;
             }
 
+
+            // TODO - Check draw after array is full or Chosen indexes is filled with 0-8
             // if noone has won return no winner yet = 'N'
 
             return noWinnerYet;
